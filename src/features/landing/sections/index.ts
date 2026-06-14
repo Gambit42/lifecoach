@@ -1,0 +1,12 @@
+export { Nav } from "./nav";
+export { Hero } from "./hero";
+export { Certifications } from "./certifications";
+export { WhoItsFor } from "./who-its-for";
+export { HowItWorks } from "./how-it-works";
+export { PullQuote } from "./pull-quote";
+export { Outcomes } from "./outcomes";
+export { Testimonials } from "./testimonials";
+export { About } from "./about";
+export { Newsletter } from "./newsletter";
+export { Cta } from "./cta";
+export { SiteFooter } from "./site-footer";

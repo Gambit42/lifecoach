@@ -1,0 +1,318 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --paper: #ffffff;
+  --paper-2: #f5f7f7;
+  /* All light teal tints are derived from --green so the warm/cool greens
+     across sections stay one hue family (paper-3 used to be a yellow-green). */
+  --paper-3: color-mix(in srgb, var(--green) 14%, #ffffff);
+  --ink: #111827;
+  --ink-soft: #1b2230;
+  --steel: #1d2433;
+  --graphite: #4b5563;
+  --slate: #6b7280;
+  --green: #527d81;
+  --green-mid: #456d71;
+  --green-ink: #3a5c60;
+  --mint: color-mix(in srgb, var(--green) 22%, #ffffff);
+  --mint-soft: color-mix(in srgb, var(--green) 12%, #ffffff);
+  --line: rgba(17, 24, 39, 0.12);
+  --line-2: rgba(17, 24, 39, 0.24);
+  --line-faint: rgba(17, 24, 39, 0.06);
+  --surface: #ffffff;
+  --surface-2: #ffffff;
+  --radius: 0.625rem;
+  --shadow: 0 18px 50px -28px rgba(17, 24, 39, 0.35);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: var(--green);
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+
+  /* brand palette — exposed as utilities (bg-paper, text-green, border-line…) */
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-steel: var(--steel);
+  --color-graphite: var(--graphite);
+  --color-slate: var(--slate);
+  --color-green: var(--green);
+  --color-green-mid: var(--green-mid);
+  --color-green-ink: var(--green-ink);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-line-faint: var(--line-faint);
+
+  --font-display: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ==========================================================================
+   Base layer — resets and shared typography only. All component/section
+   styling lives inline on the components as Tailwind utilities.
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+/* Kept in the `base` layer so Tailwind utility classes (e.g. the shadcn
+   Button's text-primary-foreground) override these resets instead of losing
+   to them — unlayered rules otherwise beat layered utilities in the cascade. */
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Tailwind v4 Preflight no longer sets cursor:pointer on buttons — restore it. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* shared heading typography — per-section sizes are applied inline */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin: 0;
+  }
+}
+
+::selection {
+  background: var(--green);
+  color: #fff;
+}
+
+/* Layout primitive: the only shared structural class. Used by every section
+   to constrain content to the page gutter. */
+.container {
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+}
+
+/* ==========================================================================
+   Atmospheric effects — masked gradient backgrounds that don't translate
+   cleanly to inline utilities. Everything else is on the components.
+   ========================================================================== */
+
+/* hero: faint engineering grid, masked to fade toward the edges */
+.fx-grid-hero {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--line-faint) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-faint) 1px, transparent 1px);
+  background-size: 62px 62px;
+  -webkit-mask-image: radial-gradient(125% 82% at 50% 40%, #000 28%, transparent 76%);
+  mask-image: radial-gradient(125% 82% at 50% 40%, #000 28%, transparent 76%);
+}
+
+/* pull-quote: white grid over the dark band, masked toward the center */
+.fx-grid-quote {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 54px 54px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 50%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(120% 90% at 50% 50%, #000 30%, transparent 78%);
+}
+
+/* cta tile: white grid over the green tile, masked toward the top-right */
+.fx-grid-cta {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(90% 90% at 70% 30%, #000, transparent);
+  mask-image: radial-gradient(90% 90% at 70% 30%, #000, transparent);
+}
+
+/* outcomes feature tile: topographic contour texture, masked to a corner */
+.fx-topo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: repeating-radial-gradient(
+    circle at 108% 112%,
+    transparent 0 26px,
+    rgba(82, 125, 129, 0.09) 26px 27.5px,
+    transparent 27.5px 52px
+  );
+  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000 35%, transparent 78%);
+  mask-image: radial-gradient(120% 120% at 100% 100%, #000 35%, transparent 78%);
+}
+
+/* Scroll reveals + hover lifts are driven by Motion (see reveal.ts);
+   MotionConfig reducedMotion="user" handles the reduce-motion preference for
+   them. This block still calms the CSS-only transitions/animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
